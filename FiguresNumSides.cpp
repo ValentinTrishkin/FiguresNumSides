@@ -6,38 +6,34 @@
 class Figure
 {
 public:
+    Figure()
+    {       
+    }    
     int get_count_sides() { return count_sides; }
     std::string get_name() { return name; };
 protected:
-    int count_sides = 0;    
-private:
-    std::string name = "Фигура";
+    int count_sides = 0;
+    std::string name = "Фигура";    
 };
 
 class Triangle: public Figure
 {
 public:
-    int conclusion()
+    Triangle() 
     {
         count_sides = 3;
-        return get_count_sides();
+        name = "Треугольник";
     }
-    std::string get_name() { return name; };
-private:
-    std::string name = "Треугольник";
 };
 
 class Quadrilateral : public Figure
 {
 public:
-    int conclusion()
+    Quadrilateral() 
     {
         count_sides = 4;
-        return get_count_sides();
-    }
-    std::string get_name() { return name; }
-private:
-    std::string name = "Четырехугольник";
+        name = "Четырехугольник";
+    };
 };
 
 int main()
@@ -48,8 +44,8 @@ int main()
     Quadrilateral quadrilateral;
     std::cout << "Количество сторон:\n";
     std::cout << figure.get_name() << ": " << figure.get_count_sides() << std::endl;
-    std::cout << triangle.get_name() << ": " << triangle.conclusion() << std::endl;
-    std::cout << quadrilateral.get_name() << ": " << quadrilateral.conclusion() << std::endl;
+    std::cout << triangle.get_name() << ": " << triangle.get_count_sides() << std::endl;
+    std::cout << quadrilateral.get_name() << ": " << quadrilateral.get_count_sides() << std::endl;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
